@@ -21,8 +21,22 @@ dataList.append(userItem)
 for dataString in dataList:
     print(dataFolder+"\\"+dataString)
 
-#%% 
-
-
-
+#%% Task3.1
+userNumbers = []
+for x in range(3):
+    userNumber= input("Enter an interger: ")
+    userNumber_int = int(userNumber)
+    userNumbers.append(userNumber_int)
+    
+userNumbers.sort()
+print(userNumbers[-1])
+ #%% Task3.2
+userNumbers = []
+for x in range(3):
+    userNumber= input("Enter an interger: ")
+    userNumber_int = int(userNumber)
+    userNumbers.append(userNumber_int)
+    
+userNumbers.sort(reverse=True)
+print(userNumbers)
  
