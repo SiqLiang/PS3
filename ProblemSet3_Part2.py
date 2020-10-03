@@ -61,6 +61,52 @@ print(f"Vessel # {vesselID} flies the flag of {fleet_name}")
 
 
 #%% Task 5
+#open the file
+fileObj_task5 = open('./loitering_events_20180723.csv','r')
+
+#Read the entire contents into a list object
+lineList_task5 = fileObj_task5.readlines()
+#Close the file
+fileObj_task5.close()
+#Save the contents of the first line in the list of lines to a variable
+headerLineString_task5 = lineList_task5[0]
+
+headerItems_task5 = headerLineString_task5.split(",")
+
+#List the indexes
+transshipment_mmsi_idx = headerItems_task5.index("transshipment_mmsi")
+starting_latitude_idx = headerItems_task5.index("starting_latitude")
+ending_latitude_idx = headerItems_task5.index("ending_latitude")
+starting_longitude_idx = headerItems_task5.index("starting_longitude")
+
+#Print the values
+print(transshipment_mmsi_idx,starting_latitude_idx,ending_latitude_idx,starting_longitude_idx)
+
+
+vesselDict_task5 = {}
+lineList_task5 = lineList_task5[1:]
+
+#Iterate through all lines (except the header) in the data file:
+for lineString_task5 in lineList_task5:
+#Split the data into values
+    lineItems_task5 = lineString_task5.split(",")
+#Extract the mmsi value from the list 
+    transshipment_mmsi = lineItems_task5[transshipment_mmsi_idx]
+    starting_latitude = lineItems_task5[starting_latitude_idx]
+    ending_latitude = lineItems_task5[ending_latitude_idx]
+    starting_longitude = lineItems_task5[starting_longitude_idx]
+    if  float(starting_latitude)*float(ending_latitude) < 0 and float(starting_longitude)<170 and float(starting_longitude)>165:
+        vesselDict_task5[transshipment_mmsi] = fleet
+        print(f"Vessel # {transshipment_mmsi} flies the flag of {fleet}")
+    
+len(vesselDict_task5)
+if len(vesselDict_task5) == 0:
+    print(f"No vessels met criteria") 
+
+    
+
+    
+
 
 
 
