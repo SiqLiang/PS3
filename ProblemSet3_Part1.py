@@ -1,3 +1,8 @@
+"""
+Created on Sat Oct  3 20:34:07 2020
+
+@author: sl559
+"""
 #%% task1
 mountain = "Denali"
 nickname = '"Mt. McKinley"'
@@ -39,4 +44,10 @@ for x in range(3):
     
 userNumbers.sort(reverse=True)
 print(userNumbers)
+ 
+
+
+ 
+ 
+ 
  
